@@ -1,0 +1,127 @@
+{% load static %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Instructions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'instructionstyle.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="Navbar2">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+        <a href="#">
+            <img src="{% static 'images/rclogo.png' %}" alt="RC" height="30px" width="40px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+          <!-- <a class="nav-item nav-link active" id="navlink" href="loginPage.html">Log In</a>
+          <a class="nav-item nav-link active" id="navlink" href="instructions.html">Instructions</a>
+          <a class="nav-item nav-link active" id="navlink" href="question.html">MCQ page</a>
+          <a class="nav-item nav-link active " href="result.html">Result</a>
+          <a class="nav-item nav-link active" id="navlink" href="Leadboard.html">Leaderboard  </a>
+          <a class="nav-item nav-link active" id="navlink" href="#">LogOut</a> -->
+        </div>
+        <img src="{% static 'images/pisblogo.png' %}"  height="40px" width="100px" alt="PISB IEEE" style="float: right;">
+        </nav>
+    </div>
+    <div class="container-1">
+        <div id="test" onmousedown='return false;' onselectstart='return false;'class="giveborderstop"  >
+            <h1 class="title">INSTRUCTIONS</h1>
+            <p  style=" color: white;text-align: left;">  1. The reverse coding round will last for 30 minutes.<br>
+                2. The answers are strictly in the form of integers.<br>
+                3. Throughout this test, you'll be provided with three lifelines. You can use only a single lifeline for one question. These lifelines are described below.<br>
+                4. Users are advised to code their solution in personal or external IDEs to compute the answer.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-timeline5">
+                    <div class="timeline">
+                        <div class="timeline-icon"><span class="year">1</span></div>
+                        <div class="timeline-content  giveborders">
+                            <h3 class="title">Astro Sub</h3>
+                            <p class="description">
+                                This lifeline allows contestants to substitute a seemingly difficult question with an easier one that is still related to the same category. The easier question will have a marking scheme of +4 marks for a correct response to this easy question and -4 marks for a wrong response.<br> Marking Scheme:<br>+4 marks for correct response;<br>-4 marks for wrong answer.</p>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <div id="test" onmousedown='return false;' onselectstart='return false;' class="timeline-icon"><span class="year">2</span></div>
+                        <div class="timeline-content  givebordersl">
+                            <h3 class="title">Time Warp</h3>
+                            <p class="description">
+                                This lifeline gives you the advantage of having additional time if you answer questions correctly. If you choose to use it, time will be added to the total test time, giving you more time to answer future questions. This lifeline can only be used once per contestant. For the first response, you get an additional benefit of 5 minutes if you answer the question correctly, but you lose 2 minutes in the case of a wrong response. If you answer it correctly in the second attempt, you get an additional 3 minutes, but you lose another 3 minutes if you give the wrong response.<br><br>Timer Scheme: <br> For first response -> <br> +5 min for correct response<br>-2 min for wrong response<br>For second response -> <br> +3 min for correct response<br>-3 min for wrong response<br>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- <div class="timeline" id="timeline3">
+                        <div class="timeline-icon"><span class="year">3</span></div>
+                        <div class="timeline-content  givebordersL" style="   ">
+                            <h3 class="title">Life Line 3</h3>
+                            <p class="description">
+                                The zones of destiny.....
+                                Players will get to choose the marking scheme for all the reamaing questions on the basis of their current zone after 45 mins into the game.....<br>
+                                Red zone -- People below 40%ile....no change in marking scheme....<br>
+                                
+                                Green zone -- people between 40%ile to 80%ile....... marking scheme will be +6 -4.<br>
+                                
+                                Purple zone -- top 20%ile players...... marking scheme will be +10 -10.
+                            </p>
+                        </div>
+                    </div> -->
+                    <div class="timeline">
+                        <div class="timeline-icon"><span class="year">3</span></div>
+                        <div id="test" onmousedown='return false;' onselectstart='return false;'class="timeline-content  giveborders">
+                            <h3 class="title">Galactic Guidance</h3>
+                            <p class="description">
+                                This lifeline allows contestants to ask ChatGPT, the virtual assistant, for guidance and advice when unsure about the answer to a question. This lifeline can only be used after the contestant has answered three consecutive questions correctly. If they choose to use it, the marking scheme for that particular question will be adjusted to +4 for a correct answer and -4 for an incorrect answer, encouraging the contestant to use this lifeline wisely and at the right moment.
+                            
+                            </p>
+                        </div>
+                    </div>                   
+                    <form  method = "POST" style="text-align: center;" action="{% url 'Instruction' %}">
+                        <div id="test" onmousedown='return false;' onselectstart='return false;' style="text-align: center; color: white;">
+                            <input type="checkbox" id="check" name="check" required>
+                            <label for="check">I have read and agree / agreed with the terms and conditions</label>
+                        </div> 
+                        {% csrf_token %}
+                        <button type="submit" class="mt-4 btn my-btn" style="color: white; background-color: #0C2340; box-shadow: 2px 2px 10px white; font-size: 20px;">Proceed</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- <footer class="text-center fixed-bottom footerr">
+      <div class="container-fluid">
+        <div class="footer-text pt-3 pb-3" style="color: #d1f7ff;">PISB <span>&copy</span></div>
+      </div>
+    </footer> -->
+    <div id="test" onmousedown='return false;' onselectstart='return false;'class="footer" >
+        <footer>
+            <p class="footertext">©PISB</p>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noback(){
+          window.history.forward();
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/84ff0cdea4.js" crossorigin="anonymous"></script>
+</body>
