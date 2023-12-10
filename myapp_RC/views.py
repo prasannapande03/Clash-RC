@@ -68,54 +68,6 @@ def signup(request):
         return redirect('/gquwa12evrat')
     return render(request, "myapp_RC/signup.html")
 
-def signin1(request):
-    context ={}
-    try :
-        if request.method == 'POST':
-            username = request.POST['username']
-            pass1 = request.POST['pass1']
-            team_value = request.POST.get('flexRadioDefault') # 1 for team, 2 for individual
-            user = authenticate(username = username, password = pass1)
-
-            if user is not None:
-                login(request, user)
-                fname = user.first_name
-
-                # =====================
-                profile = Profile.objects.get(user = user)
-
-                if profile.category == True:   # True for Junior
-                    allQues = Question.objects.filter(is_junior = True)
-                else:   #False for Senior
-                    allQues = Question.objects.filter(is_junior = False)
-                
-                # allQues = Question.objects.all()
-                # queIndex = np.arange(1, len(allQues)).tolist()
-                queIndex = [q.id for q in allQues]
-                random.shuffle(queIndex)
-
-                queIndex = queIndex[:11]
-
-                profile.questionIndexList = str(queIndex)
-                if profile.newlogin == False :
-                    profile.newlogin = True
-                else :
-                    messages.error(request, "Already Logged in via other device")
-                    return render(request, 'myapp_RC/signin.html', context)
-                profile.save()
-                # =====================
-                return redirect('Instruction')
-
-            else:
-                messages.error(request, "Bad Credentials")
-                return render(request, "myapp_RC/signin.html")
-            
-    except :
-        return redirect ('SignIn')
-
-    return render( request, "myapp_RC/signin.html")
-
-
 ################################################
 @csrf_protect
 def signin(request):
