@@ -1,0 +1,4 @@
+superuser-->
+username - admin
+password - password
+email - tanmaydeo2003gmail.com
